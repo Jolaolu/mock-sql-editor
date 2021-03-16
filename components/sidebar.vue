@@ -1,0 +1,20 @@
+<template>
+  <aside class="bg-white mr-4 h-full rounded-md" role="sidebar">
+    <h3 class="text-gray-500 font-semi-bold text-xl my-2 ml-3">
+      Tables
+    </h3>
+    <ul class="px-4 mb-6 pb-4 border-b border-gray-500">
+      <li v-for="(table, index) in 15" :key="index" class="flex py-2 items-center">
+        <figure class="h-5 w-3 mr-3">
+          <img class="w-full h-full" :src="require('@/static/database.svg')" alt="" srcset="">
+        </figure>
+        <p>dummy table</p>
+      </li>
+    </ul>
+    <section>
+      <h3 class="text-gray-500 font-semi-bold text-xl ml-3">
+        Tables Information
+      </h3>
+    </section>
+  </aside>
+</template>
