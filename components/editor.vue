@@ -17,13 +17,27 @@
 <script>
 import { mapActions } from 'vuex'
 export default {
+  props: {
+    saveItem: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return {
       query: null
     }
   },
+  watch: {
+    saveItem () {
+      if (this.saveItem === true) {
+        this.saveQuery(this.query)
+        this.$emit('saved')
+      }
+    }
+  },
   methods: {
-    ...mapActions(['getResults']),
+    ...mapActions(['getResults', 'saveQuery']),
     search  () {
       this.getResults(this.query)
     }

@@ -17,7 +17,7 @@
         </h3>
       </div>
       <div class="flex justify-end w-2/5 md:w-1/3">
-        <button type="button" class="bg-green-400 flex items-center rounded-md font-semibold text-xs md:text-sm py-1 md:py-2 px-2 md:px-4" @click="saveQuery">
+        <button type="button" class="bg-green-400 flex items-center rounded-md font-semibold text-xs md:text-sm py-1 md:py-2 px-2 md:px-4" @click="$emit('save-query')">
           <span>  Save query  </span>
           <figure class="h-5 w-3 ml-3">
             <img class="w-full h-full" :src="require('@/static/save-file.svg')" alt="" srcset="">

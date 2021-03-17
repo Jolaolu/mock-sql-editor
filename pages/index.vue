@@ -1,14 +1,25 @@
 <template>
   <div class="w-full h-full flex bg-gray-300 px-5 pt-5 pb-10">
     <section class="w-full">
-      <editor />
-      <queries />
+      <editor :save-item="saveItem" @saved="toggleStoreQuery" />
+      <queries @save-query="toggleStoreQuery" />
     </section>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      saveItem: false
+    }
+  },
+  methods: {
+    toggleStoreQuery () {
+      this.saveItem = !this.saveItem
+    }
+  }
+}
 </script>
 
 <style>

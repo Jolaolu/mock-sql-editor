@@ -9,13 +9,16 @@ export const state = () => ({
 
 export const mutations = {
   SAVE_QUERY (state, query) {
-    state.savedQueries.push(...query)
+    state.savedQueries.push(query)
   },
   SET_RESULT (state, query) {
     state.result = query
   },
   SET_LOADING (state, payload) {
     state.loading = payload
+  },
+  DELETE_QUERY (state, payload) {
+    state.savedQueries.splice(payload, 1)
   },
   SET_ERROR (state, payload) {
     state.error = payload
@@ -48,6 +51,12 @@ export const actions = {
       commit('SET_RESULT', results)
       resolve(results)
     })
+  },
+  saveQuery ({ commit, dispatch }, data) {
+    commit('SAVE_QUERY', data)
+  },
+  deleteQuery ({ commit, dispatch }, data) {
+    commit('DELETE_QUERY', data)
   },
   setError ({ commit }) {
     commit('SET_ERROR', true)
