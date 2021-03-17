@@ -6,12 +6,12 @@
     <header v-if="!loading" class="w-full flex items-start justify-between">
       <div class="flex w-3/5 md:w-1/2 justify-around border-b">
         <h3 class="mr-1 md:mr-0">
-          <button class="text-sm md:text-xl px-2" :class="{'border-b-2 border-blue-500':currentTabComponent=='result'}" type="button" @click="currentTabComponent='result'">
+          <button class="text-sm md:text-xl px-2" :class="{'border-b-2 border-blue-500': currentTabComponent=='queryResults'}" type="button" @click="setComponent('queryResults')">
             Query result
           </button>
         </h3>
         <h3>
-          <button class="text-sm md:text-xl" :class="{'border-b-2 border-blue-500': currentTabComponent=='history'}" type="button" @click="currentTabComponent='history'">
+          <button class="text-sm md:text-xl" :class="{'border-b-2 border-blue-500': currentTabComponent=='queryHistory'}" type="button" @click="setComponent('queryHistory')">
             History
           </button>
         </h3>
@@ -33,14 +33,25 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import queryResults from './query-results'
+import queryHistory from './query-history'
+
 export default {
+  components: {
+    queryResults,
+    queryHistory
+  },
   data () {
     return {
-      currentTabComponent: 'result'
+      currentTabComponent: 'queryResults'
     }
   },
   computed: mapGetters(['loading']),
   methods: {
+    setComponent (name) {
+      console.log(name)
+      this.currentTabComponent = name
+    }
   }
 }
 </script>
