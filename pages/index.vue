@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full flex bg-gray-300 px-5 pt-5 pb-20">
-    <sidebar class="w-2/12" />
-    <section class="w-10/12 ml-6">
+  <div class="w-full flex bg-gray-300 px-5 pt-5 pb-10">
+    <!-- <sidebar class="w-2/12" /> -->
+    <section class="w-full">
       <editor />
       <queries />
     </section>

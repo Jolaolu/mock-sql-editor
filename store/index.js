@@ -1,16 +1,16 @@
 import { queries } from '@/utils/queries'
 
 export const state = () => ({
-  savedResults: [],
+  savedQueries: [],
   result: {},
   loading: false
 })
 
 export const mutations = {
   SAVE_QUERY (state, query) {
-    state.savedResults.push(...query)
+    state.savedQueries.push(...query)
   },
-  SET_QUERY (state, query) {
+  SET_RESULT (state, query) {
     state.result = query
   },
   SET_LOADING (state, payload) {
@@ -18,8 +18,8 @@ export const mutations = {
   }
 }
 export const getters = {
-  currentQuery: state => state.result,
-  savedQueries: state => state.savedResults,
+  currentResult: state => state.result,
+  savedQueries: state => state.savedQueries,
   loading: state => state.loading
 }
 
@@ -27,7 +27,7 @@ export const actions = {
   getResults ({ commit, dispatch }, data) {
     dispatch('setLoading')
     return new Promise((resolve, reject) => {
-      const queryData = queries[data.toLowerCase()]
+      const queryData = queries[data.toLowerCase().trim()]
       const results = {
         headers: [],
         data: queryData
@@ -35,7 +35,7 @@ export const actions = {
       if (queryData.length >= 1) {
         results.headers = Object.keys(queryData[0])
       }
-      commit('SET_QUERY', results)
+      commit('SET_RESULT', results)
       resolve(results)
     })
   },

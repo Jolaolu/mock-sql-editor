@@ -1,62 +1,56 @@
+/* MEDIA QUERIES ----------- */
+
+$breakpoint-small: 360px;
+$breakpoint-min: 420px;
+$breakpoint-mid: 768px;
+$breakpoint-med: 1024px;
+$breakpoint-large: 1280px;
+$breakpoint-larger: 1440px;
+
 /* MIXINS FOR MEDIA QUERIES ----------- */
 
 @mixin screen($size, $type: max, $pixels: 600) {
-  @if $size== "smallest" {
-    @media screen and (max-width: $breakpoint-smallest * 1px) {
-        //320px and lower
-      @content;
-    }
-  }
   @if $size== "small" {
-    @media screen and (max-width: $breakpoint-small* 1px) {
-        //360px and lower
+    @media screen and (max-width: $breakpoint-small) {
       @content;
     }
   }
   @if $size== "min" {
-    @media screen and (max-width: $breakpoint-min* 1px) {
-        //420px
+    @media screen and (max-width: $breakpoint-min) {
       @content;
     }
   } @else if $size== "menner" {
-    @media screen and (min-width: $breakpoint-mid * 1px) {
-        //768px and higher;
+    @media screen and (min-width: $breakpoint-mid) {
       @content;
     }
   }
   @if $size== "mid" {
-    @media screen and (max-width: $breakpoint-mid * 1px) {
-         //768px and lower;
+    @media screen and (max-width: $breakpoint-mid) {
       @content;
     }
   } @else if $size== "midder" {
-    @media screen and (min-width: $breakpoint-mid * 1px) and (max-width: $breakpoint-med * 1px) {
-       //768px - 1024px;
-        @content;
+    @media screen and (min-width: $breakpoint-mid) and (max-width: $breakpoint-med) {
+      @content;
     }
   } @else if $size== "med" {
-    @media screen and (max-width: $breakpoint-med * 1px) {
-        // 1024px and lower;
+    @media screen and (max-width: $breakpoint-med) {
       @content;
     }
   } @else if $size== "medder" {
-    @media screen and (min-width: $breakpoint-med * 1px) {
-         // 1024px and higher;
+    @media screen and (min-width: $breakpoint-med) {
       @content;
     }
   } @else if $size== "large" {
-    @media screen and (min-width: $breakpoint-large * 1px) {
-        //1280px and higher;
+    @media screen and (min-width: $breakpoint-large) {
       @content;
     }
   } @else if $size== "larger" {
-    @media screen and (min-width: $breakpoint-larger * 1px) {
-        // 1440px and higher;
+    @media screen and (min-width: $breakpoint-larger) {
       @content;
     }
-  } @else if $size=='custom' {
-      @media screen and ($type + -width: $pixels + px) {
-          @content;
-      }
-  }
+  } @else if $size== 'custom' {
+		@media screen and ($type + -width: $pixels + px) {
+			@content;
+		}
+	}
 }

@@ -4,14 +4,14 @@
       Editor
     </h2>
     <div class="flex justify-between">
-      <p class="text-sm text-gray-700">
+      <p class="text-xs md:text-sm text-gray-700">
         Type in your queries here.
       </p>
-      <button type="button" class="bg-green-400 text-white text-xs py-2 px-4" @click="search">
+      <button type="button" class="bg-blue-400 rounded-md font-semibold text-white text-xs md:text-sm py-2 px-4" @click="search">
         Run query
       </button>
     </div>
-    <textarea v-model="query" class="w-full mt-3 px-2 pt-3 pb-5 border-t border-b" placeholder="Your Query" name="" rows="5" />
+    <textarea v-model="query" class="w-full mt-3 px-2 pt-3 pb-5 border-t border-b text-xl" placeholder="Your Query" name="" rows="5" />
   </section>
 </template>
 <script>
