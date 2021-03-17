@@ -1,5 +1,5 @@
 <template>
-  <main class="h-screen">
+  <main class="">
     <navbar />
     <Nuxt />
   </main>
@@ -23,5 +23,8 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
+}
+main {
+  height: max-content;
 }
 </style>

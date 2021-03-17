@@ -16,12 +16,12 @@
           <p class="mr-2 text-xs">
             {{ index + 1 }}.
           </p>
-          <p class="mr-2">
+          <p class="text-xs md:text-base mr-2">
             {{ query }}
           </p>
         </div>
         <div class="w-1/2 flex justify-end items-center">
-          <button class="w-20 py-1 border-2 rounded-md flex items-center justify-center mr-5" @click="search(query)">
+          <button class="px-3 md:px-0 md:w-20 py-1 border-2 rounded-md flex items-center justify-center mr-5" @click="search(query)">
             <p class="mr-2 hidden md:block capitalize">
               run
             </p>
