@@ -3,7 +3,8 @@ import { queries } from '~/utils/utils'
 export const state = () => ({
   savedQueries: [],
   result: {},
-  loading: false
+  loading: false,
+  error: false
 })
 
 export const mutations = {
@@ -15,12 +16,17 @@ export const mutations = {
   },
   SET_LOADING (state, payload) {
     state.loading = payload
+  },
+  SET_ERROR (state, payload) {
+    state.error = payload
+    state.result = {}
   }
 }
 export const getters = {
   currentResult: state => state.result,
   savedQueries: state => state.savedQueries,
-  loading: state => state.loading
+  loading: state => state.loading,
+  error: state => state.error
 }
 
 export const actions = {
@@ -32,6 +38,10 @@ export const actions = {
         headers: [],
         data: queryData
       }
+      if (queryData === undefined) {
+        dispatch('setError')
+        return null
+      }
       if (queryData.length >= 1) {
         results.headers = Object.keys(queryData[0])
       }
@@ -39,7 +49,11 @@ export const actions = {
       resolve(results)
     })
   },
-  setLoading ({ commit }, payload) {
+  setError ({ commit }) {
+    commit('SET_ERROR', true)
+    setTimeout(() => { commit('SET_ERROR', false) }, 10000)
+  },
+  setLoading ({ commit }) {
     commit('SET_LOADING', true)
     setTimeout(() => { commit('SET_LOADING', false) }, 2000)
   }

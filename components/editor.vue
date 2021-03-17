@@ -7,7 +7,7 @@
       <p class="text-xs md:text-sm text-gray-700">
         Type in your queries here.
       </p>
-      <button type="button" class="bg-blue-400 rounded-md font-semibold text-white text-xs md:text-sm py-2 px-4" @click="search">
+      <button type="button" :disabled="query == null || query ==''" class="bg-blue-400 rounded-md font-semibold text-white text-xs md:text-sm py-2 px-4" @click="search">
         Run query
       </button>
     </div>

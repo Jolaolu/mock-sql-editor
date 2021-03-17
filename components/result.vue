@@ -1,6 +1,6 @@
 <template>
   <section class="mt-4 flex flex-col items-center">
-    <table class="w-full mt-5 table-auto info-table">
+    <table v-if="currentResult.headers" class="w-full mt-5 table-auto info-table">
       <thead>
         <tr class="bg-gray-600">
           <th
@@ -27,6 +27,12 @@
         @changing="changePage"
       />
     </div>
+    <article v-show="!currentResult.headers && !error" class="w-full py-4 px-3 h-64">
+      <p>This is where your query results will appear</p>
+    </article>
+    <article v-show="error" class="h-64 py-5">
+      <p>NO result found for this Query, Could be a missing space in your query. please check and try again.</p>
+    </article>
   </section>
 </template>
 <script>
@@ -47,7 +53,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['currentResult']),
+    ...mapGetters(['currentResult', 'error']),
     totalPageData () {
       return this.currentResult.data.length
     }

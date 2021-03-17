@@ -16,11 +16,6 @@
         There are no saved queries, yet.
       </p>
     </div>
-    <!-- <section>
-      <h3 class="text-gray-500 font-semi-bold text-xl ml-3">
-        Tables Information
-      </h3>
-    </section> -->
   </aside>
 </template>
 <script>

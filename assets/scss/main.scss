@@ -3,3 +3,8 @@
 //utils
 @import "_mixins";
 
+button{
+  &:disabled{
+    cursor: not-allowed;
+  }
+}
