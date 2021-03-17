@@ -1,4 +1,4 @@
-import { queries } from '@/utils/queries'
+import { queries } from '~/utils/utils'
 
 export const state = () => ({
   savedQueries: [],

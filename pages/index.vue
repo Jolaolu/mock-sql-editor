@@ -1,6 +1,5 @@
 <template>
-  <div class="w-full flex bg-gray-300 px-5 pt-5 pb-10">
-    <!-- <sidebar class="w-2/12" /> -->
+  <div class="w-full h-full flex bg-gray-300 px-5 pt-5 pb-10">
     <section class="w-full">
       <editor />
       <queries />

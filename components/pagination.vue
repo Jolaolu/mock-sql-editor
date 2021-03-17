@@ -62,11 +62,13 @@ export default {
   button {
     margin: 0.2rem 0;
     padding: .5rem;
-    background: #c4c4c4;
+    border: 1px solid #000f40;
     cursor: pointer;
-    color: #878790;
+    color: #000000;
+    width: 80px;
   }
   button:disabled {
-      cursor: not-allowed;
+    background: #e8e6e6;
+    cursor: not-allowed;
     }
 </style>
