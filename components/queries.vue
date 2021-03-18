@@ -53,9 +53,6 @@ export default {
       return null
     }
   },
-  // mounted () {
-  //   this.currentTab = 'results'
-  // },
   methods: {
     setComponent (name) {
       this.currentTab = name
