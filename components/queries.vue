@@ -6,12 +6,12 @@
     <header v-if="!loading" class="w-full flex items-start justify-between">
       <div class="flex w-3/5 md:w-1/2 justify-around border-b">
         <h3 class="mr-1 md:mr-0">
-          <button class="text-sm md:text-xl px-2" :class="{'border-b-2 border-blue-500': currentTabComponent=='queryResults'}" type="button" @click="setComponent('queryResults')">
+          <button class="text-sm md:text-xl px-2" :class="{'border-b-2 border-blue-500': currentTabComponent=='query-results'}" type="button" @click="setComponent('results')">
             Query result
           </button>
         </h3>
         <h3>
-          <button class="text-sm md:text-xl" :class="{'border-b-2 border-blue-500': currentTabComponent=='queryHistory'}" type="button" @click="setComponent('queryHistory')">
+          <button class="text-sm md:text-xl" :class="{'border-b-2 border-blue-500': currentTabComponent=='query-history'}" type="button" @click="setComponent('history')">
             History
           </button>
         </h3>
@@ -26,31 +26,40 @@
       </div>
     </header>
     <article v-if="!loading">
-      <component :is="currentTabComponent" />
-      <p> this is a test component </p>
+      <component :is="currentTabComponent" v-if="currentTabComponent" />
     </article>
   </section>
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import queryResults from './query-results'
-import queryHistory from './query-history'
-
 export default {
   components: {
-    queryResults,
-    queryHistory
+    'query-results': () => import('./query-results.vue'),
+    'query-history': () => import('./query-history.vue')
   },
   data () {
     return {
-      currentTabComponent: 'queryResults'
+      currentTab: 'results'
     }
   },
-  computed: mapGetters(['loading']),
+  computed: {
+    ...mapGetters(['loading']),
+    currentTabComponent () {
+      let name
+      if (this.currentTab) {
+        name = 'query-' + this.currentTab
+        return name
+      }
+      return null
+    }
+  },
+  // mounted () {
+  //   this.currentTab = 'results'
+  // },
   methods: {
     setComponent (name) {
+      this.currentTab = name
       console.log(name)
-      this.currentTabComponent = name
     }
   }
 }

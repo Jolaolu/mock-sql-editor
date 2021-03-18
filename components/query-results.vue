@@ -8,7 +8,7 @@
             :key="index"
             class="text-sm text-white"
           >
-            {{ seperateString(header) }}
+            {{ header }}
           </th>
         </tr>
       </thead>
@@ -74,11 +74,6 @@ export default {
     }
   },
   methods: {
-    seperateString (header) {
-      return header
-        .replace(/((?<!^)[A-Z](?![A-Z]))(?=\S)/g, ' $1')
-        .replace(/^./, s => s.toUpperCase())
-    },
     getNumberOfPages () {
       return (this.totalPages = Math.ceil(this.totalPageData / this.perPage))
     },
