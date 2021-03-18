@@ -56,7 +56,6 @@ export default {
   methods: {
     setComponent (name) {
       this.currentTab = name
-      console.log(name)
     }
   }
 }

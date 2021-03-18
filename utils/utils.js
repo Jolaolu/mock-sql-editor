@@ -4,8 +4,8 @@ export const users = database
 
 export const queries = {
   'select * from users': users,
-  "select * from users where title = 'owner'": users.filter(user => user.contactTitle.toLowerCase() == 'owner'),
-  "select * from users where country = 'london'": users.filter(user => user.country.toLowerCase() == 'uk')
+  "select * from users where title = 'owner'": users.filter(user => user.contactTitle.toLowerCase() == 'owner'), // .filter is more performant on smaller array
+  "select * from users where country = 'uk'": users.filter(user => user.country.toLowerCase() == 'uk')
 }
 
 /**
